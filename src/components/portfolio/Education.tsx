@@ -7,21 +7,33 @@ const education = [
     title: "B.Tech — Electronics & Communications",
     place: "PES University, Ring Road Campus",
     detail: "CGPA: 7.01",
-    courses: ["Info Theory & Coding", "Wireless Networking", "Machine Learning", "Cryptography", "Cyber Security"],
+    courses: [
+      "Signals and Systems",
+      "Digital Signal Processing",
+      "Information Theory & Coding",
+      "Wireless Networking",
+      "Concepts of TCP/IP Architecture",
+      "Machine Learning",
+      "Cryptography",
+      "Cyber Security",
+    ],
     icon: <GraduationCap size={24} className="text-portfolio-gold" />,
   },
   {
     period: "2016 – 2018",
     title: "ISC — Class XII",
     place: "Frank Anthony Public School, Bengaluru",
-    detail: "87.6%",
+    courses: ["Physics", "Chemistry", "Mathematics", "Biology"],
+    detail: "Aggregate: 87.6%",
     icon: <School size={24} className="text-portfolio-gold" />,
   },
   {
     period: "2004 – 2016",
     title: "ICSE — Class X",
     place: "Frank Anthony Public School, Bengaluru",
-    detail: "91.8%",
+    detail: "Aggregate: 91.8%",
+    description:
+      "Acquired General Proficiency in 2nd Language Kannada (2004–2014)",
     icon: <School size={24} className="text-portfolio-gold" />,
   },
 ];
@@ -32,8 +44,12 @@ export default function Education() {
       <div className="max-w-[1200px] mx-auto">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <p className="text-portfolio-gold text-[13px] tracking-[3px] uppercase mb-3">Background</p>
-            <h2 className="font-serif text-[clamp(32px,4vw,48px)] font-bold">Education</h2>
+            <p className="text-portfolio-gold text-[13px] tracking-[3px] uppercase mb-3">
+              Background
+            </p>
+            <h2 className="font-serif text-[clamp(32px,4vw,48px)] font-bold">
+              Education
+            </h2>
             <div className="w-[60px] h-[3px] bg-portfolio-gold mx-auto mt-5 rounded-sm" />
           </div>
         </AnimatedSection>
@@ -41,13 +57,13 @@ export default function Education() {
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-[24px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-portfolio-gold to-transparent" />
-          
+
           {education.map((edu, i) => (
             <AnimatedSection key={i}>
               <div className="flex gap-10 mb-10 pl-[60px] relative">
                 {/* Timeline Dot */}
                 <div className="absolute left-[14px] top-[6px] w-[22px] h-[22px] rounded-full bg-portfolio-bg border-[3px] border-portfolio-gold z-10" />
-                
+
                 <div className="flex-1 bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
                   <div className="flex justify-between items-start flex-wrap gap-3 mb-2">
                     <div className="flex items-center gap-3">
@@ -60,10 +76,17 @@ export default function Education() {
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-portfolio-muted text-[14px] mb-2">{edu.place}</p>
+                  <p className="text-portfolio-muted text-[14px] mb-2">
+                    {edu.place}
+                  </p>
                   <p className="text-portfolio-gold font-semibold text-[15px] mb-4">
                     {edu.detail}
                   </p>
+                  {edu.description && (
+                    <p className="text-portfolio-muted text-[14px] italic mb-4">
+                      {edu.description}
+                    </p>
+                  )}
                   {edu.courses && (
                     <div className="flex gap-2 flex-wrap">
                       {edu.courses.map((c) => (

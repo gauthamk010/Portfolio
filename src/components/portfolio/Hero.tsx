@@ -50,13 +50,13 @@ export default function Hero() {
     >
       <div className="max-w-[1200px] mx-auto w-full grid md:grid-cols-2 gap-20 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 bg-portfolio-gold/10 border border-portfolio-border rounded-full px-4 py-1.5 mb-7">
+          {/* <div className="inline-flex items-center gap-2 bg-portfolio-gold/10 border border-portfolio-border rounded-full px-4 py-1.5 mb-7">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-[13px] text-portfolio-gold font-medium">
-              {/* Available for opportunities */}
+              {/* Available for opportunities 
               Actively learning and working
             </span>
-          </div>
+          </div> */}
           <h1 className="font-serif text-[clamp(42px,6vw,72px)] font-black leading-[1.1] mb-5">
             Gautham
             <br />
@@ -88,12 +88,12 @@ export default function Hero() {
             >
               View Projects
             </button>
-            <button
+            {/* <button
               className="bg-transparent text-portfolio-gold border border-portfolio-gold px-7 py-3 rounded-md font-semibold text-[14px] hover:bg-portfolio-gold/10 transition-colors"
               onClick={() => scrollTo("Contact")}
             >
               Get in Touch
-            </button>
+            </button> */}
           </div>
           <div className="flex gap-8 mt-12">
             {[

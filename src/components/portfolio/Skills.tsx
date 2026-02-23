@@ -1,170 +1,149 @@
-import { useRef, useState, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { Brain, Database } from "lucide-react";
+import {
+  Database,
+  Cpu,
+  Shield,
+  Network,
+  Palette,
+  Component,
+} from "lucide-react";
 
 const skills = [
   {
     name: "React",
-    level: 90,
     category: "Frontend",
     icon: "devicon-react-original colored",
   },
   {
     name: "Next.js",
-    level: 88,
     category: "Frontend",
-    icon: "devicon-nextjs-plain colored text-white",
+    icon: "devicon-nextjs-plain text-portfolio-text",
   },
   {
-    name: "HTML & CSS",
-    level: 85,
+    name: "TailwindCSS",
     category: "Frontend",
-    icon: "devicon-html5-plain colored",
+    icon: "devicon-tailwindcss-original colored",
+  },
+  {
+    name: "Bootstrap",
+    category: "Frontend",
+    icon: "devicon-bootstrap-plain colored",
+  },
+  {
+    name: "Mantine",
+    category: "Frontend",
+    icon: <Palette size={28} className="text-portfolio-gold" />,
+  },
+  {
+    name: "ShadCN",
+    category: "Frontend",
+    icon: <Component size={28} className="text-portfolio-gold" />,
+  },
+  { name: "HTML5", category: "Languages", icon: "devicon-html5-plain colored" },
+  { name: "CSS3", category: "Languages", icon: "devicon-css3-plain colored" },
+  {
+    name: "JavaScript",
+    category: "Languages",
+    icon: "devicon-javascript-plain colored",
+  },
+  {
+    name: "TypeScript",
+    category: "Languages",
+    icon: "devicon-typescript-plain colored",
   },
   {
     name: "NestJS",
-    level: 82,
     category: "Backend",
     icon: "devicon-nestjs-original colored",
   },
   {
     name: "Express.js",
-    level: 85,
     category: "Backend",
-    icon: "devicon-express-original text-white",
+    icon: "devicon-express-original text-portfolio-text",
   },
   {
     name: "Node.js",
-    level: 83,
     category: "Backend",
     icon: "devicon-nodejs-plain colored",
   },
   {
     name: "MongoDB",
-    level: 80,
     category: "Database",
     icon: "devicon-mongodb-plain colored",
   },
   {
     name: "SQL / DBMS",
-    level: 72,
     category: "Database",
-    icon: <Database size={20} className="text-portfolio-gold" />,
+    icon: <Database size={28} className="text-portfolio-gold" />,
   },
   {
     name: "Python",
-    level: 80,
     category: "Languages",
     icon: "devicon-python-plain colored",
   },
-  {
-    name: "Java",
-    level: 65,
-    category: "Languages",
-    icon: "devicon-java-plain colored",
-  },
-  {
-    name: "C",
-    level: 65,
-    category: "Languages",
-    icon: "devicon-c-plain colored",
-  },
+  { name: "Java", category: "Languages", icon: "devicon-java-plain colored" },
+  { name: "C", category: "Languages", icon: "devicon-c-plain colored" },
   {
     name: "Arduino",
-    level: 75,
     category: "Languages",
     icon: "devicon-arduino-plain colored",
   },
+  { name: "R", category: "Languages", icon: "devicon-r-plain colored" },
   {
-    name: "R",
-    level: 60,
+    name: "Verilog",
     category: "Languages",
-    icon: "devicon-r-plain colored",
+    icon: <Cpu size={28} className="text-portfolio-gold" />,
   },
   {
-    name: "MATLAB",
-    level: 70,
+    name: "SystemVerilog",
+    category: "Languages",
+    icon: <Cpu size={28} className="text-portfolio-gold" />,
+  },
+  { name: "MATLAB", category: "Tools", icon: "devicon-matlab-plain colored" },
+  { name: "VS Code", category: "Tools", icon: "devicon-vscode-plain colored" },
+  { name: "Postman", category: "Tools", icon: "devicon-postman-plain colored" },
+  { name: "Git", category: "Tools", icon: "devicon-git-plain colored" },
+  {
+    name: "GitHub",
     category: "Tools",
-    icon: "devicon-matlab-plain colored",
+    icon: "devicon-github-original text-portfolio-text",
+  },
+  { name: "GitLab", category: "Tools", icon: "devicon-gitlab-plain colored" },
+  {
+    name: "Wireshark",
+    category: "Tools",
+    icon: <Shield size={28} className="text-portfolio-gold" />,
   },
   {
-    name: "Machine Learning",
-    level: 75,
-    category: "AI/ML",
-    icon: <Brain size={20} className="text-portfolio-gold" />,
+    name: "GNS3",
+    category: "Tools",
+    icon: <Network size={28} className="text-portfolio-gold" />,
   },
 ];
 
-function SkillBar({
+function SkillCard({
   name,
-  level,
-  delay = 0,
   icon,
 }: {
   name: string;
-  level: number;
-  delay?: number;
-  icon?: React.ReactNode | string;
+  icon: React.ReactNode | string;
 }) {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
-      },
-      { threshold: 0.1 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div ref={ref} className="mb-4">
-      <div className="flex justify-between items-center mb-2">
-        <div className="flex items-center gap-2.5">
-          {typeof icon === "string" ? (
-            <i className={`${icon} text-[18px]`} aria-hidden="true" />
-          ) : (
-            icon
-          )}
-          <span className="text-portfolio-text text-[14px] font-sans">
-            {name}
-          </span>
-        </div>
-        <span className="text-portfolio-gold text-[13px] font-semibold">
-          {level}%
-        </span>
-      </div>
-      <div className="bg-white/10 rounded overflow-hidden h-1.5">
-        <div
-          role="progressbar"
-          aria-valuenow={level}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-label={`${name}: ${level}%`}
-          className="h-full rounded bg-gradient-to-r from-portfolio-gold to-[#e8c96a] transition-all duration-1000 ease-out"
-          style={{
-            width: inView ? `${level}%` : "0%",
-            transitionDelay: `${delay}ms`,
-          }}
-        />
-      </div>
+    <div className="group flex flex-col items-center gap-3 rounded-xl border-2 border-portfolio-border bg-portfolio-card px-5 py-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-portfolio-gold/60 hover:shadow-[0_8px_24px_rgba(201,168,76,0.15)] hover:bg-gradient-to-br hover:from-portfolio-gold/10 hover:to-transparent">
+      {typeof icon === "string" ? (
+        <i className={`${icon} text-[28px]`} aria-hidden="true" />
+      ) : (
+        icon
+      )}
+      <span className="text-portfolio-text text-[16px] font-medium">
+        {name}
+      </span>
     </div>
   );
 }
 
 export default function Skills() {
-  const categories = [
-    "Frontend",
-    "Backend",
-    "Database",
-    "Languages",
-    "AI/ML",
-    "Tools",
-    "Security",
-  ];
+  const categories = ["Frontend", "Backend", "Database", "Languages", "Tools"];
 
   return (
     <section id="skills" className="py-[100px] px-8 relative z-10">
@@ -186,18 +165,16 @@ export default function Skills() {
           if (!catSkills.length) return null;
           return (
             <AnimatedSection key={cat} className="mb-10">
-              <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
+              <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
                 <h3 className="font-serif text-[18px] text-portfolio-gold mb-6 flex items-center gap-2.5">
                   <span className="w-1 h-5 bg-portfolio-gold rounded-sm inline-block" />
                   {cat}
                 </h3>
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-x-10 gap-y-2">
-                  {catSkills.map((skill, i) => (
-                    <SkillBar
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
+                  {catSkills.map((skill) => (
+                    <SkillCard
                       key={skill.name}
                       name={skill.name}
-                      level={skill.level}
-                      delay={i * 100}
                       icon={skill.icon}
                     />
                   ))}

@@ -49,14 +49,14 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-100 transition-all duration-400 px-8 border-b",
+        "fixed top-0 left-0 right-0 z-100 transition-all duration-400 px-8 border-b-4",
         scrolled
           ? "bg-portfolio-nav-bg backdrop-blur-md border-portfolio-border"
           : "bg-transparent border-transparent",
       )}
     >
       <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[68px]">
-        <div className="font-serif text-[22px] font-bold text-portfolio-gold tracking-[1px]">
+        <div className="font-serif text-[20px] font-bold text-portfolio-gold tracking-[1px] border-2 border-portfolio-gold rounded-full w-[44px] h-[44px] flex items-center justify-center">
           GK
         </div>
         <div className="hidden md:flex gap-8">
