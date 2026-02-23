@@ -10,7 +10,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-[100px] px-8 relative z-10 bg-[rgba(255,255,255,0.015)]">
+    <section id="certifications" className="py-[100px] px-8 relative z-10 bg-portfolio-section-alt">
       <div className="max-w-[1200px] mx-auto">
         <AnimatedSection>
           <div className="text-center mb-16">

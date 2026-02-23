@@ -1,30 +1,49 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
-const navLinks = ["About", "Skills", "Projects", "Experience", "Education", "Certifications"];
+const navLinks = [
+  "About",
+  "Skills",
+  "Projects",
+  "Experience",
+  "Education",
+  "Certifications",
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+  const { theme, toggleTheme } = useTheme();
+  const rafRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      const sections = navLinks.map((s) => s.toLowerCase());
-      for (const section of sections.reverse()) {
-        const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 350) {
-          setActiveSection(section);
-          break;
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        const sections = navLinks.map((s) => s.toLowerCase());
+        for (const section of sections.reverse()) {
+          const el = document.getElementById(section);
+          if (el && window.scrollY >= el.offsetTop - 350) {
+            setActiveSection(section);
+            break;
+          }
         }
-      }
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById(id.toLowerCase())
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -32,8 +51,8 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-100 transition-all duration-400 px-8 border-b",
         scrolled
-          ? "bg-[rgba(10,14,26,0.92)] backdrop-blur-md border-portfolio-border"
-          : "bg-transparent border-transparent"
+          ? "bg-portfolio-nav-bg backdrop-blur-md border-portfolio-border"
+          : "bg-transparent border-transparent",
       )}
     >
       <div className="max-w-[1200px] mx-auto flex items-center justify-between h-[68px]">
@@ -49,7 +68,7 @@ export default function Navbar() {
                 "text-[14px] font-medium tracking-[0.5px] cursor-pointer transition-colors relative",
                 activeSection === link.toLowerCase()
                   ? "text-portfolio-gold"
-                  : "text-portfolio-muted hover:text-portfolio-gold"
+                  : "text-portfolio-muted hover:text-portfolio-gold",
               )}
             >
               {link}
@@ -59,12 +78,21 @@ export default function Navbar() {
             </button>
           ))}
         </div>
-        <button
-          className="bg-gradient-to-br from-portfolio-gold to-[#e8c96a] text-portfolio-bg px-5 py-2 rounded-md font-semibold text-[13px] hover:opacity-90 transition-opacity transform hover:-translate-y-[1px]"
-          onClick={() => scrollTo("Contact")}
-        >
-          Contact Me
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg border border-portfolio-border text-portfolio-muted hover:text-portfolio-gold hover:border-portfolio-gold/50 transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            className="bg-gradient-to-br from-portfolio-gold to-[#e8c96a] text-portfolio-bg px-5 py-2 rounded-md font-semibold text-[13px] hover:opacity-90 transition-opacity transform hover:-translate-y-[1px]"
+            onClick={() => scrollTo("Contact")}
+          >
+            Contact Me
+          </button>
+        </div>
       </div>
     </nav>
   );

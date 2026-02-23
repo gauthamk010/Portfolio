@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+/* Google Fonts loaded asynchronously in index.html */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -46,16 +46,37 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
-    --color-portfolio-bg: #0a0e1a;
-    --color-portfolio-gold: #c9a84c;
-    --color-portfolio-text: #e2d9c5;
-    --color-portfolio-muted: rgba(226,217,197,0.55);
-    --color-portfolio-border: rgba(201,168,76,0.2);
-    --color-portfolio-card: rgba(255,255,255,0.04);
+    --color-portfolio-bg: var(--portfolio-bg);
+    --color-portfolio-gold: var(--portfolio-gold);
+    --color-portfolio-text: var(--portfolio-text);
+    --color-portfolio-muted: var(--portfolio-muted);
+    --color-portfolio-border: var(--portfolio-border);
+    --color-portfolio-card: var(--portfolio-card);
+    --color-portfolio-section-alt: var(--portfolio-section-alt);
+    --color-portfolio-nav-bg: var(--portfolio-nav-bg);
+    --color-portfolio-badge-bg: var(--portfolio-badge-bg);
+    --color-portfolio-avatar-from: var(--portfolio-avatar-from);
+    --color-portfolio-avatar-to: var(--portfolio-avatar-to);
 }
 
+/* ─── Light Theme (default) ─── */
 :root {
     --radius: 0.625rem;
+
+    /* Portfolio palette — light */
+    --portfolio-bg: #f5f0e8;
+    --portfolio-gold: #9e7e2a;
+    --portfolio-text: #1a1f2e;
+    --portfolio-muted: rgba(26,31,46,0.55);
+    --portfolio-border: rgba(158,126,42,0.22);
+    --portfolio-card: rgba(255,255,255,0.65);
+    --portfolio-section-alt: rgba(0,0,0,0.025);
+    --portfolio-nav-bg: rgba(245,240,232,0.92);
+    --portfolio-badge-bg: rgba(245,240,232,0.92);
+    --portfolio-avatar-from: #e8e0d0;
+    --portfolio-avatar-to: #d5cfc3;
+
+    /* Shadcn defaults */
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -89,7 +110,22 @@
     --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* ─── Dark Theme ─── */
 .dark {
+    /* Portfolio palette — dark (original) */
+    --portfolio-bg: #0a0e1a;
+    --portfolio-gold: #c9a84c;
+    --portfolio-text: #e2d9c5;
+    --portfolio-muted: rgba(226,217,197,0.55);
+    --portfolio-border: rgba(201,168,76,0.2);
+    --portfolio-card: rgba(255,255,255,0.04);
+    --portfolio-section-alt: rgba(255,255,255,0.015);
+    --portfolio-nav-bg: rgba(10,14,26,0.92);
+    --portfolio-badge-bg: rgba(10,14,26,0.90);
+    --portfolio-avatar-from: #1a2035;
+    --portfolio-avatar-to: #0d1220;
+
+    /* Shadcn dark */
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -145,4 +181,10 @@
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Keyboard focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--portfolio-gold);
+  outline-offset: 2px;
 }
