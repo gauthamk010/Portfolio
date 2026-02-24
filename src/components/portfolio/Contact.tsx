@@ -19,6 +19,7 @@ const contactInfo = [
     label: "Location",
     value: "Bangalore, India",
     href: "https://www.google.com/maps/place/Bengaluru,+Karnataka,+India",
+    external: true,
   },
   {
     icon: <Github size={28} />,
