@@ -6,6 +6,8 @@ import {
   Network,
   Palette,
   Component,
+  Brain,
+  BarChart3,
 } from "lucide-react";
 
 const skills = [
@@ -38,6 +40,11 @@ const skills = [
     name: "ShadCN",
     category: "Frontend",
     icon: <Component size={28} className="text-portfolio-gold" />,
+  },
+  {
+    name: "React Native",
+    category: "Frontend",
+    icon: "devicon-react-original colored",
   },
   { name: "HTML5", category: "Languages", icon: "devicon-html5-plain colored" },
   { name: "CSS3", category: "Languages", icon: "devicon-css3-plain colored" },
@@ -72,7 +79,7 @@ const skills = [
     icon: "devicon-mongodb-plain colored",
   },
   {
-    name: "SQL / DBMS",
+    name: "SQL / DBMS Basics",
     category: "Database",
     icon: <Database size={28} className="text-portfolio-gold" />,
   },
@@ -119,6 +126,32 @@ const skills = [
     category: "Tools",
     icon: <Network size={28} className="text-portfolio-gold" />,
   },
+  {
+    name: "Machine Learning",
+    category: "AI/ML",
+    icon: <Brain size={28} className="text-portfolio-gold" />,
+  },
+  {
+    name: "Scikit Learn",
+    category: "AI/ML",
+    icon: "devicon-scikitlearn-plain colored",
+  },
+  {
+    name: "Pandas",
+    category: "AI/ML",
+    icon: "devicon-pandas-plain text-portfolio-text",
+  },
+  { name: "NumPy", category: "AI/ML", icon: "devicon-numpy-plain colored" },
+  {
+    name: "Matplotlib",
+    category: "AI/ML",
+    icon: "devicon-matplotlib-plain colored",
+  },
+  {
+    name: "Seaborn",
+    category: "AI/ML",
+    icon: <BarChart3 size={28} className="text-portfolio-gold" />,
+  },
 ];
 
 function SkillCard({
@@ -143,7 +176,14 @@ function SkillCard({
 }
 
 export default function Skills() {
-  const categories = ["Frontend", "Backend", "Database", "Languages", "Tools"];
+  const categories = [
+    "Frontend",
+    "Backend",
+    "Database",
+    "Languages",
+    "AI/ML",
+    "Tools",
+  ];
 
   return (
     <section id="skills" className="py-[100px] px-8 relative z-10">

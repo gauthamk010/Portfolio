@@ -1,13 +1,18 @@
 import Navbar from "./components/portfolio/Navbar";
 import Hero from "./components/portfolio/Hero";
-import Skills from "./components/portfolio/Skills";
-import Projects from "./components/portfolio/Projects";
-import Experience from "./components/portfolio/Experience";
-import Education from "./components/portfolio/Education";
-import Languages from "./components/portfolio/Languages";
-import Certifications from "./components/portfolio/Certifications";
-import Contact from "./components/portfolio/Contact";
-import Footer from "./components/portfolio/Footer";
+import { lazy, Suspense } from "react";
+
+// Lazy load below-the-fold sections to reduce initial JS bundle and improve FCP/LCP
+const Skills = lazy(() => import("./components/portfolio/Skills"));
+const Projects = lazy(() => import("./components/portfolio/Projects"));
+const Experience = lazy(() => import("./components/portfolio/Experience"));
+const Education = lazy(() => import("./components/portfolio/Education"));
+const Languages = lazy(() => import("./components/portfolio/Languages"));
+const Certifications = lazy(
+  () => import("./components/portfolio/Certifications"),
+);
+const Contact = lazy(() => import("./components/portfolio/Contact"));
+const Footer = lazy(() => import("./components/portfolio/Footer"));
 
 function App() {
   return (
@@ -44,15 +49,19 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <Languages />
-        <Certifications />
-        <Contact />
+        <Suspense fallback={null}>
+          <Skills />
+          <Projects />
+          <Experience />
+          <Education />
+          <Languages />
+          <Certifications />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Database, Server, Code, Layers } from "lucide-react";
+//import { Database, Server, Code, Layers } from "lucide-react";
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -57,10 +57,9 @@ export default function Hero() {
               Actively learning and working
             </span>
           </div> */}
-          <h1 className="font-serif text-[clamp(42px,6vw,72px)] font-black leading-[1.1] mb-5">
+          <h1 className="font-serif text-[clamp(42px,6vw,72px)] font-black leading-[1.1] mb-5 whitespace-nowrap">
             Gautham
-            <br />
-            <span className="text-portfolio-gold">Keshav</span>
+            <span className="text-portfolio-gold"> Keshav</span>
           </h1>
           <div
             className="text-[20px] text-portfolio-muted mb-6 h-8 flex items-center"
@@ -77,8 +76,8 @@ export default function Hero() {
           </div>
           <p className="text-base leading-[1.8] text-portfolio-muted max-w-[460px] mb-10">
             ECE graduate from PES University with a passion for building modern
-            web applications and an interest in ML/AI applications. Skilled in
-            full-stack development with React, Next.js, NestJS, and MongoDB —
+            web applications and an avid interest in ML/AI applications. Skilled
+            in full-stack development with React, Next.js, NestJS, and MongoDB —
             bridging hardware intuition with software creativity.
           </p>
           <div className="flex gap-4 flex-wrap">
@@ -98,8 +97,8 @@ export default function Hero() {
           <div className="flex gap-8 mt-12">
             {[
               ["7.01", "CGPA"],
-              ["2+", "Projects"],
-              ["1+", "Certifications"],
+              ["5+", "Projects"],
+              ["2+", "Certifications"],
             ].map(([val, label]) => (
               <div key={label}>
                 <div className="font-serif text-[28px] font-bold text-portfolio-gold">
@@ -114,11 +113,24 @@ export default function Hero() {
         </div>
 
         <div className="flex justify-center items-center">
-          <div className="relative animate-float">
-            <div className="w-[320px] h-[320px] rounded-full bg-gradient-to-br from-portfolio-gold/15 to-[#1e3c78]/30 border-2 border-portfolio-border flex items-center justify-center relative">
-              <div className="w-[280px] h-[280px] rounded-full bg-gradient-to-br from-portfolio-avatar-from to-portfolio-avatar-to border border-portfolio-gold/15 flex items-center justify-center text-[100px]">
-                👨‍💻
-              </div>
+          <div className="relative">
+            {/* Outer rotating ring — clockwise */}
+            <div
+              className="absolute inset-[-20px] rounded-full border-2 border-dashed border-portfolio-gold/30 animate-spin-slow"
+              aria-hidden="true"
+            />
+            {/* Inner rotating ring — counter-clockwise */}
+            <div
+              className="absolute inset-[-10px] rounded-full border-2 border-dashed border-portfolio-gold/15 animate-spin-slow"
+              aria-hidden="true"
+            />
+            <div className="w-[480px] h-[480px] rounded-full bg-gradient-to-br from-portfolio-gold/15 to-[#1e3c78]/30 border-2 border-portfolio-border flex items-center justify-center relative">
+              <img
+                src="/personal-photo.webp"
+                alt="Gautham Keshav"
+                fetchPriority="high"
+                className="w-[420px] h-[420px] rounded-full object-cover border border-portfolio-gold/15"
+              />
               {/* Orbiting dots — decorative */}
               {[0, 72, 144, 216, 288].map((deg, i) => (
                 <div
@@ -137,7 +149,7 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Floating tech badges */}
+            {/* Floating tech badges
             <TechBadge
               label="React"
               top="10%"
@@ -161,7 +173,7 @@ export default function Hero() {
               bottom="10%"
               left="-15%"
               icon={<Server size={14} />}
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -169,23 +181,23 @@ export default function Hero() {
   );
 }
 
-interface TechBadgeProps {
-  label: string;
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-  icon: React.ReactNode;
-}
+// interface TechBadgeProps {
+//   label: string;
+//   top?: string;
+//   bottom?: string;
+//   left?: string;
+//   right?: string;
+//   icon: React.ReactNode;
+// }
 
-function TechBadge({ label, top, bottom, left, right, icon }: TechBadgeProps) {
-  return (
-    <div
-      className="absolute bg-portfolio-badge-bg border border-portfolio-border rounded-lg px-3.5 py-2 text-[13px] font-semibold text-portfolio-gold backdrop-blur-md whitespace-nowrap flex items-center gap-2"
-      style={{ top, bottom, left, right }}
-    >
-      {icon}
-      {label}
-    </div>
-  );
-}
+// function TechBadge({ label, top, bottom, left, right, icon }: TechBadgeProps) {
+//   return (
+//     <div
+//       className="absolute bg-portfolio-badge-bg border border-portfolio-border rounded-lg px-3.5 py-2 text-[13px] font-semibold text-portfolio-gold backdrop-blur-md whitespace-nowrap flex items-center gap-2"
+//       style={{ top, bottom, left, right }}
+//     >
+//       {icon}
+//       {label}
+//     </div>
+//   );
+// }
