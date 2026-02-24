@@ -57,7 +57,7 @@ export default function Hero() {
               Actively learning and working
             </span>
           </div> */}
-          <h1 className="font-serif text-[clamp(42px,6vw,72px)] font-black leading-[1.1] mb-5 whitespace-nowrap">
+          <h1 className="font-serif text-[clamp(32px,6vw,72px)] font-black leading-[1.1] mb-5 md:whitespace-nowrap">
             Gautham
             <span className="text-portfolio-gold"> Keshav</span>
           </h1>
@@ -116,20 +116,20 @@ export default function Hero() {
           <div className="relative">
             {/* Outer rotating ring — clockwise */}
             <div
-              className="absolute inset-[-20px] rounded-full border-2 border-dashed border-portfolio-gold/30 animate-spin-slow"
+              className="absolute inset-[-16px] md:inset-[-20px] rounded-full border-2 border-dashed border-portfolio-gold/30 animate-spin-slow"
               aria-hidden="true"
             />
             {/* Inner rotating ring — counter-clockwise */}
             <div
-              className="absolute inset-[-10px] rounded-full border-2 border-dashed border-portfolio-gold/15 animate-spin-slow"
+              className="absolute inset-[-8px] md:inset-[-10px] rounded-full border-2 border-dashed border-portfolio-gold/15 animate-spin-slow"
               aria-hidden="true"
             />
-            <div className="w-[480px] h-[480px] rounded-full bg-gradient-to-br from-portfolio-gold/15 to-[#1e3c78]/30 border-2 border-portfolio-border flex items-center justify-center relative">
+            <div className="w-[280px] h-[280px] md:w-[480px] md:h-[480px] rounded-full bg-gradient-to-br from-portfolio-gold/15 to-[#1e3c78]/30 border-2 border-portfolio-border flex items-center justify-center relative">
               <img
                 src="/personal-photo.webp"
                 alt="Gautham Keshav"
                 fetchPriority="high"
-                className="w-[420px] h-[420px] rounded-full object-cover border border-portfolio-gold/15"
+                className="w-[240px] h-[240px] md:w-[420px] md:h-[420px] rounded-full object-cover border border-portfolio-gold/15"
               />
               {/* Orbiting dots — decorative */}
               {[0, 72, 144, 216, 288].map((deg, i) => (
