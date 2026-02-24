@@ -64,7 +64,7 @@ export default function Education() {
                 {/* Timeline Dot */}
                 <div className="absolute left-[14px] top-[6px] w-[22px] h-[22px] rounded-full bg-portfolio-bg border-[3px] border-portfolio-gold z-10" />
 
-                <div className="flex-1 bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
+                <div className="flex-1 bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-[transform,border-color,box-shadow] duration-300">
                   <div className="flex justify-between items-start flex-wrap gap-3 mb-2">
                     <div className="flex items-center gap-3">
                       {edu.icon}

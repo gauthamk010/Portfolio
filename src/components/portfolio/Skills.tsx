@@ -162,7 +162,7 @@ function SkillCard({
   icon: React.ReactNode | string;
 }) {
   return (
-    <div className="group flex flex-col items-center gap-3 rounded-xl border-2 border-portfolio-border bg-portfolio-card px-5 py-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-portfolio-gold/60 hover:shadow-[0_8px_24px_rgba(201,168,76,0.15)] hover:bg-gradient-to-br hover:from-portfolio-gold/10 hover:to-transparent">
+    <div className="group flex flex-col items-center gap-3 rounded-xl border-2 border-portfolio-border bg-portfolio-card px-5 py-5 text-center transition-[transform,border-color,box-shadow,background] duration-300 hover:-translate-y-1 hover:border-portfolio-gold/60 hover:shadow-[0_8px_24px_rgba(201,168,76,0.15)] hover:bg-gradient-to-br hover:from-portfolio-gold/10 hover:to-transparent">
       {typeof icon === "string" ? (
         <i className={`${icon} text-[28px]`} aria-hidden="true" />
       ) : (
@@ -205,7 +205,7 @@ export default function Skills() {
           if (!catSkills.length) return null;
           return (
             <AnimatedSection key={cat} className="mb-10">
-              <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
+              <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-8 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-[border-color,box-shadow] duration-300">
                 <h3 className="font-serif text-[18px] text-portfolio-gold mb-6 flex items-center gap-2.5">
                   <span className="w-1 h-5 bg-portfolio-gold rounded-sm inline-block" />
                   {cat}

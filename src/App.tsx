@@ -14,6 +14,50 @@ const Certifications = lazy(
 const Contact = lazy(() => import("./components/portfolio/Contact"));
 const Footer = lazy(() => import("./components/portfolio/Footer"));
 
+function SectionLoader() {
+  return (
+    <div className="max-w-[1200px] mx-auto px-8 py-20">
+      {/* Section heading skeleton */}
+      <div className="flex items-center gap-3 mb-10">
+        <div className="w-1.5 h-7 bg-portfolio-gold/40 rounded-sm animate-pulse" />
+        <div className="h-6 w-52 bg-portfolio-gold/10 rounded-lg animate-pulse" />
+      </div>
+
+      {/* Card skeletons */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="bg-portfolio-card border border-portfolio-border rounded-2xl p-8 animate-pulse"
+            style={{ animationDelay: `${i * 150}ms` }}
+          >
+            <div className="w-10 h-10 rounded-xl bg-portfolio-gold/10 mb-5" />
+            <div className="h-4 w-3/4 bg-portfolio-gold/10 rounded-md mb-4" />
+            <div className="space-y-2.5">
+              <div className="h-3 w-full bg-portfolio-border/50 rounded-md" />
+              <div className="h-3 w-5/6 bg-portfolio-border/50 rounded-md" />
+              <div className="h-3 w-2/3 bg-portfolio-border/50 rounded-md" />
+            </div>
+            <div className="flex gap-2 mt-6">
+              <div className="h-5 w-14 bg-portfolio-gold/10 rounded-full" />
+              <div className="h-5 w-16 bg-portfolio-gold/10 rounded-full" />
+              <div className="h-5 w-12 bg-portfolio-gold/10 rounded-full" />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Loading text */}
+      <div className="flex items-center justify-center gap-3 mt-14">
+        <div className="w-5 h-5 rounded-full border-2 border-portfolio-border border-t-portfolio-gold animate-spin" />
+        <p className="text-sm text-portfolio-muted tracking-wide">
+          Gathering information…
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="bg-portfolio-bg min-h-screen font-sans text-portfolio-text overflow-x-hidden selection:bg-portfolio-gold selection:text-portfolio-bg transition-colors duration-300">
@@ -49,7 +93,7 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <Suspense fallback={null}>
+        <Suspense fallback={<SectionLoader />}>
           <Skills />
           <Projects />
           <Experience />

@@ -147,7 +147,7 @@ function ProjectCard({
 }) {
   return (
     <AnimatedSection>
-      <div className="bg-portfolio-card border border-portfolio-border rounded-[20px] p-9 h-full hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
+      <div className="bg-portfolio-card border border-portfolio-border rounded-[20px] p-9 h-full hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-[transform,border-color,box-shadow] duration-300">
         <div className="mb-5">{project.icon}</div>
         <h3 className="font-serif text-[20px] font-bold mb-3 text-portfolio-text">
           {project.title}
@@ -198,7 +198,7 @@ export default function Projects() {
         </AnimatedSection>
         {workProjects.map((project) => (
           <AnimatedSection key={project.title} className="mb-10">
-            <div className="bg-portfolio-card border border-portfolio-border rounded-[20px] p-9 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300">
+            <div className="bg-portfolio-card border border-portfolio-border rounded-[20px] p-9 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-[transform,border-color,box-shadow] duration-300">
               <div className="mb-5">{project.icon}</div>
               <h3 className="font-serif text-[22px] font-bold mb-2 text-portfolio-text">
                 {project.title}
@@ -221,7 +221,7 @@ export default function Projects() {
                 {project.subProjects.map((sub) => (
                   <div
                     key={sub.name}
-                    className="border border-portfolio-border rounded-xl p-5 bg-portfolio-bg/50 hover:border-portfolio-gold/40 transition-all duration-300"
+                    className="border border-portfolio-border rounded-xl p-5 bg-portfolio-bg/50 hover:border-portfolio-gold/40 transition-[transform,border-color,box-shadow] duration-300"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-14 h-14 rounded-xl bg-stone-400 dark:bg-white/10 border border-portfolio-border shadow-sm flex items-center justify-center shrink-0">

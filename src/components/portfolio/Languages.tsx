@@ -34,7 +34,7 @@ export default function Languages() {
             {languages.map((lang) => (
               <div
                 key={lang.name}
-                className="group flex flex-col items-center gap-3 rounded-xl border-2 border-portfolio-border bg-portfolio-card px-5 py-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-portfolio-gold/60 hover:shadow-[0_8px_24px_rgba(201,168,76,0.15)] hover:bg-gradient-to-br hover:from-portfolio-gold/10 hover:to-transparent"
+                className="group flex flex-col items-center gap-3 rounded-xl border-2 border-portfolio-border bg-portfolio-card px-5 py-6 text-center transition-[transform,border-color,box-shadow,background] duration-300 hover:-translate-y-1 hover:border-portfolio-gold/60 hover:shadow-[0_8px_24px_rgba(201,168,76,0.15)] hover:bg-gradient-to-br hover:from-portfolio-gold/10 hover:to-transparent"
               >
                 <LanguagesIcon size={28} className="text-portfolio-gold" />
                 <span className="text-portfolio-text text-[16px] font-medium">

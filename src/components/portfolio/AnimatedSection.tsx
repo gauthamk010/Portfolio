@@ -9,7 +9,7 @@ function useInView(threshold = 0.15) {
       ([entry]) => {
         if (entry.isIntersecting) setInView(true);
       },
-      { threshold }
+      { threshold },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -31,8 +31,8 @@ export default function AnimatedSection({
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-700 ease-out",
-        className
+        "transition-[opacity,transform] duration-700 ease-out",
+        className,
       )}
       style={{
         opacity: inView ? 1 : 0,

@@ -127,7 +127,7 @@ export default function Hero() {
             <div className="w-[280px] h-[280px] md:w-[480px] md:h-[480px] rounded-full bg-gradient-to-br from-portfolio-gold/15 to-[#1e3c78]/30 border-2 border-portfolio-border flex items-center justify-center relative">
               <img
                 src="/personal-photo-lg.webp"
-                srcSet="/personal-photo-sm.webp 480w, /personal-photo-lg.webp 840w"
+                srcSet="/personal-photo-xs.webp 240w, /personal-photo-sm.webp 480w, /personal-photo-lg.webp 840w"
                 sizes="(max-width: 768px) 240px, 420px"
                 alt="Gautham Keshav"
                 fetchPriority="high"

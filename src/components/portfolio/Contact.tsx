@@ -68,7 +68,7 @@ export default function Contact() {
                   : {})}
                 className="no-underline group w-full md:w-[280px]"
               >
-                <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-6 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-all duration-300 text-portfolio-text h-full flex flex-col items-center justify-center">
+                <div className="bg-portfolio-card border border-portfolio-border rounded-2xl p-6 hover:-translate-y-1 hover:border-portfolio-gold/50 hover:shadow-[0_16px_40px_rgba(201,168,76,0.12)] transition-[transform,border-color,box-shadow] duration-300 text-portfolio-text h-full flex flex-col items-center justify-center">
                   <div className="mb-2.5 text-portfolio-text flex justify-center">
                     {item.icon}
                   </div>
