@@ -60,7 +60,7 @@ function SectionLoader() {
 
 function App() {
   return (
-    <div className="bg-portfolio-bg min-h-screen font-sans text-portfolio-text overflow-x-hidden selection:bg-portfolio-gold selection:text-portfolio-bg transition-colors duration-300">
+    <div className="bg-portfolio-bg min-h-screen font-sans text-portfolio-text overflow-x-hidden selection:bg-portfolio-gold selection:text-portfolio-bg">
       {/* Skip to content — keyboard/SR accessibility */}
       <a
         href="#main-content"

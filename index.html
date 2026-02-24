@@ -62,7 +62,16 @@
       fetchpriority="high"
     />
 
-    <!-- Google Fonts — loaded async to avoid render-blocking -->
+    <!-- Preload critical fonts to reduce LCP Element render delay -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2"
+      crossorigin
+    />
+
+    <!-- Google Fonts — with display=swap already in URL -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"

@@ -17,7 +17,7 @@ const contactInfo = [
   {
     icon: <MapPin size={28} />,
     label: "Location",
-    value: "Bangalore, India",
+    value: "Bengaluru, Karnataka, India",
     href: "https://www.google.com/maps/place/Bengaluru,+Karnataka,+India",
     external: true,
   },

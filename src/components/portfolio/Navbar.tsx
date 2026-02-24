@@ -79,7 +79,7 @@ export default function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-100 transition-all duration-400 px-8 border-b-4",
+          "fixed top-0 left-0 right-0 z-100 transition-[background-color,border-color,backdrop-filter] duration-400 px-8 border-b-4",
           scrolled
             ? "bg-portfolio-nav-bg backdrop-blur-md border-portfolio-border"
             : "bg-transparent border-transparent",
@@ -115,7 +115,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg border border-portfolio-border text-portfolio-muted hover:text-portfolio-gold hover:border-portfolio-gold/50 transition-all duration-300"
+              className="p-2 rounded-lg border border-portfolio-border text-portfolio-muted hover:text-portfolio-gold hover:border-portfolio-gold/50 transition-[border-color] duration-300"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -129,7 +129,7 @@ export default function Navbar() {
 
             {/* Hamburger button — mobile & tablet only */}
             <button
-              className="lg:hidden p-2 rounded-lg border border-portfolio-border text-portfolio-muted hover:text-portfolio-gold hover:border-portfolio-gold/50 transition-all duration-300"
+              className="lg:hidden p-2 rounded-lg border border-portfolio-border text-portfolio-muted hover:text-portfolio-gold hover:border-portfolio-gold/50 transition-[border-color] duration-300"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
@@ -143,7 +143,7 @@ export default function Navbar() {
       {/* Mobile / Tablet slide-down menu */}
       <div
         className={cn(
-          "fixed inset-0 z-90 lg:hidden transition-all duration-300",
+          "fixed inset-0 z-90 lg:hidden transition-opacity duration-300",
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none",
@@ -168,7 +168,7 @@ export default function Navbar() {
                 key={link}
                 onClick={() => scrollTo(link)}
                 className={cn(
-                  "text-left text-[16px] font-medium py-3 px-4 rounded-lg transition-all duration-200",
+                  "text-left text-[16px] font-medium py-3 px-4 rounded-lg transition-[background-color] duration-200",
                   activeSection === link.toLowerCase()
                     ? "text-portfolio-gold bg-portfolio-gold/10"
                     : "text-portfolio-muted hover:text-portfolio-gold hover:bg-portfolio-gold/5",
